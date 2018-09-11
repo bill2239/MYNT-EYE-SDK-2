@@ -48,7 +48,10 @@ int main(int argc, char *argv[]) {
 
     char key = static_cast<char>(cv::waitKey(1));
     if (key == 27 || key == 'q' || key == 'Q') {  // ESC/Q
+		if (!depth_data.frame.empty()) {
+		cv::imwrite("depth_temp.png", depth_data.frame);
       break;
+	  }
     }
   }
 
